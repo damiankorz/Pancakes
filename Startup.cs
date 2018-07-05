@@ -13,14 +13,9 @@ namespace Activities
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-        public Startup(IHostingEnvironment env)
-        {
             var builder = new ConfigurationBuilder()
             .SetBasePath(env.ContentRootPath)
             .AddJsonFile("appsettings.json", optional:false, reloadOnChange: true)
@@ -28,11 +23,13 @@ namespace Activities
             Configuration = builder.Build();
         }
 
+        public IConfiguration Configuration {get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
-            services.AddDbContext<ActivityContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionStrings"]));
+            services.AddDbContext<ActivityContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
             services.AddMvc();
         }
 
