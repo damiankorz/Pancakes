@@ -23,7 +23,8 @@ namespace Activities
         {
             var builder = new ConfigurationBuilder()
             .SetBasePath(env.ContentRootPath)
-            .AddJsonFile("appsettings.json");
+            .AddJsonFile("appsettings.json", optional:false, reloadOnChange: true)
+            .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
@@ -31,7 +32,7 @@ namespace Activities
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
-            services.AddDbContext<ActivityContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<ActivityContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionStrings"]));
             services.AddMvc();
         }
 
