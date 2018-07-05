@@ -1,0 +1,27 @@
+@model ShowActivity
+<h1>Dojo Activity Center</h1>
+<a href="/home">Home</a>
+<a href="/logout">Logout</a>
+<h2>@Model.Activity.Title</h2>
+@if(Model.Activity.UserID == Model.User.ID)
+{
+    <button><a href="/activity/@Model.Activity.ID/delete">Delete</a></button>
+}
+@if(Model.Activity.Participants.Where(p => p.UserID == Model.User.ID).SingleOrDefault() == null && @Model.Activity.UserID != @Model.User.ID)
+{
+    <button><a href="/activity/@Model.Activity.ID/join">Join</a></button>
+}
+@if(Model.Activity.Participants.Where(p => p.UserID == Model.User.ID).SingleOrDefault() != null && @Model.Activity.UserID != @Model.User.ID)
+{
+    <button><a href="/activity/@Model.Activity.ID/leave">Leave</a></button>
+}
+<h3>Event Coordinator: @Model.Activity.User.FirstName</h3>
+<h3>Description:</h3>
+<p>@Model.Activity.Description</p>
+<h3>Participants:</h3>
+<ul>
+@foreach(var person in Model.Activity.Participants)
+{
+    <li>@person.User.FirstName</li>
+}
+</ul>

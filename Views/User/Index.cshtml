@@ -1,0 +1,18 @@
+@model UserViewModels
+<h1>Welcome to the Dojo Activity Center</h1>
+<div asp-validation-summary="All"></div>
+<h2>Login</h2>
+<form asp-action="Login" asp-controller="User" method="post">
+    <input asp-for="Login.LoginEmail" placeholder="Email">
+    <input asp-for="Login.LoginPassword" placeholder="Password">
+    <input type="submit" value="Login">
+</form>
+<h2>Register</h2>
+<form asp-action="Register" asp-controller="User" method="post">
+    <input asp-for="Register.FirstName" placeholder="First Name">
+    <input asp-for="Register.LastName" placeholder="Last Name">
+    <input asp-for="Register.Email" placeholder="Email">
+    <input asp-for="Register.Password" placeholder="Password">
+    <input asp-for="Register.ConfirmPassword" placeholder="Confirm Password">
+    <input type="submit" value="Register">
+</form>

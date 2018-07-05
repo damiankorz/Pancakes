@@ -1,0 +1,14 @@
+table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+    tr {
+        border-bottom: 1px solid silver;
+    }
+        th {
+            padding: 5px 75px 5px 5px;
+            border: 1px solid silver;
+        }
+        td {
+            padding: 5px 0px 5px 5px;
+        }

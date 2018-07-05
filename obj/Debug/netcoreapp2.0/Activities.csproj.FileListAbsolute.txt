@@ -1,0 +1,11 @@
+/Users/damiank/Desktop/Activities/bin/Debug/netcoreapp2.0/Activities.deps.json
+/Users/damiank/Desktop/Activities/bin/Debug/netcoreapp2.0/Activities.runtimeconfig.json
+/Users/damiank/Desktop/Activities/bin/Debug/netcoreapp2.0/Activities.runtimeconfig.dev.json
+/Users/damiank/Desktop/Activities/bin/Debug/netcoreapp2.0/Activities.dll
+/Users/damiank/Desktop/Activities/bin/Debug/netcoreapp2.0/Activities.pdb
+/Users/damiank/Desktop/Activities/obj/Debug/netcoreapp2.0/Activities.csprojResolveAssemblyReference.cache
+/Users/damiank/Desktop/Activities/obj/Debug/netcoreapp2.0/Activities.csproj.CoreCompileInputs.cache
+/Users/damiank/Desktop/Activities/obj/Debug/netcoreapp2.0/Activities.AssemblyInfoInputs.cache
+/Users/damiank/Desktop/Activities/obj/Debug/netcoreapp2.0/Activities.AssemblyInfo.cs
+/Users/damiank/Desktop/Activities/obj/Debug/netcoreapp2.0/Activities.dll
+/Users/damiank/Desktop/Activities/obj/Debug/netcoreapp2.0/Activities.pdb

@@ -1,0 +1,44 @@
+@model HomeModels
+<h1>Dojo Activity Center</h1>
+<h3>Welcome @Model.User.FirstName!</h3>
+@if(TempData["error"] != null)
+{
+    <p>@TempData["error"]</p>
+}
+<a href="/logout">Logout</a>
+<table>
+    <tr>
+        <th>Activity</th>
+        <th>Date and Time</th>
+        <th>Duration</th>
+        <th>Event Coordinator</th>
+        <th>Number of Participants</th>
+        <th>Actions</th>
+    </tr>
+    @foreach(var activity in Model.AllActivities)
+    {
+        @if(activity.Date > @DateTime.Now)
+        {
+            <tr>
+                <td><a href="/activity/@activity.ID">@activity.Title</a></td>
+                <td>@activity.Date.ToString("D") &#64; @activity.Time.ToString("t")</td>
+                <td>@activity.Duration</td>
+                <td>@activity.User.FirstName</td>
+                <td>@activity.Participants.Count</td>
+                @if(activity.UserID == @Model.User.ID)
+                {
+                    <td><a href="/activity/@activity.ID/delete">Delete</a></td>
+                }
+                @if(activity.Participants.Where(p => p.UserID == Model.User.ID).SingleOrDefault() == null && @activity.UserID != @Model.User.ID)
+                {
+                    <td><a href="/activity/@activity.ID/join">Join</a></td>
+                }
+                @if(activity.Participants.Where(p => p.UserID == Model.User.ID).SingleOrDefault() != null && @activity.UserID != @Model.User.ID)
+                {
+                    <td><a href="/activity/@activity.ID/leave">Leave</a></td>
+                }
+            </tr>
+        }
+    }
+</table>
+<button><a href="/new">Add a New Activity</a></button>

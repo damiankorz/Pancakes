@@ -1,0 +1,22 @@
+@model ActivityModel
+<h1>Dojo Activity Center</h1>
+<a href="/home">Home</a>
+<a href="/logout">Logout</a>
+<h2>Create an Activity!</h2>
+<div asp-validation-summary="All"></div>
+<form asp-action="Create" asp-controller="Home" method="post">
+    <input asp-for="Title" placeholder="Title">
+    <label asp-for="Time">Time:</label>
+    <input asp-for="Time" type="time">
+    <label asp-for="Date">Date:</label>
+    <input asp-for="Date" type="date">
+    <label asp-for="Duration">Duration:</label>
+    <input asp-for="Duration" placeholder="Duration">
+    <select name="stringDuration">
+        <option>Days</option>
+        <option>Hours</option>
+        <option>Minutes</option>
+    </select>
+    <textarea style="display: block;" asp-for="Description" placeholder="Description" cols="30" rows="5"></textarea>
+    <button>Create Activity</button>
+</form>
